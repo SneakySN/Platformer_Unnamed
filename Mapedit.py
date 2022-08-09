@@ -250,7 +250,7 @@ class MapeditView(arcade.View):
         self.tool_line(142.5, 32, "pic/mapedit/back.png")
         self.tool_line(142.5, 96, "pic/mapedit/open.png")
         self.tool_line(142.5, 160, "pic/mapedit/save.png")
-        self.tool_line(142.5, 224, "pic/mapedit/meta.png")
+        # self.tool_line(142.5, 224, "pic/mapedit/meta.png")
         self.toolOn = True
 
     def on_show(self):

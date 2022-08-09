@@ -28,6 +28,6 @@
 		{"pos": [1024, 1056, 170], "tex": "pic/object_interact/spring.png"}
 	],
 	"portal": [
-		{"pos": [824, 860, 512], "tex": "pic/object_interact/portal.png"}
+		{"pos": [824, 825, 512], "tex": "pic/object_interact/portal.png"}
 	]
 }

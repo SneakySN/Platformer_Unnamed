@@ -51,90 +51,32 @@ class GameView(arcade.View):
 
         self.cur_m = 0
         self.window.set_mouse_visible(True)
-
-    @mdp #최영훈, 
+        
     def map_read(self, map_file):
-        with open(map_file, encoding='utf-8') as f_r:
-            # load file
-            data = json.load(f_r)
-            print(data)
-
-            # load variables
-            # location
-            location_x = data["char"][0]
-            location_y = data["char"][1]
-
-            # setting user position
-            self.user_pos(location_x, location_y)
-
-            # draw
-            for i in self.map_string_list:
-                print(i)
-                #for a in range(len(data[i])):
-                for k in data[i]:
-                    if i == "walls": self.wall_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "thorns": self.object_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "coins": self.coin_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "flags": self.flag_line(k["pos"][0], k["pos"][1], k["tex"])
-                    elif i == "spring": self.spring_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "portal": self.portal_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-
-    @map_read.register(dict) #최영훈
-    def _(self, map_file):
         data = map_file
+        if isinstance(data, str):
+            with open(data, encoding='utf-8') as f_r:
+                data = json.load(f_r)
 
         # load variables
         # location
-        location_x = data["char"][0]
-        location_y = data["char"][1]
+        self.save_char_x = data["char"][0]
+        self.save_char_y = data["char"][1]
 
-        self.user_pos(location_x, location_y)
+        # setting user position
+        self.user_pos(self.save_char_x, self.save_char_y)
 
         # draw
         for i in self.map_string_list:
             print(i)
-            # for a in range(len(data[i])):
+            #for a in range(len(data[i])):
             for k in data[i]:
-                if i == "walls":
-                    self.wall_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                elif i == "thorns":
-                    self.object_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                elif i == "coins":
-                    self.coin_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                elif i == "flags":
-                    self.flag_line(k["pos"][0], k["pos"][1], k["tex"])
-                elif i == "spring":
-                    self.spring_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                elif i == "portal":
-                    self.portal_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-
-    @map_read.register(str) #최영훈
-    def _(self, map_file):
-        with open(map_file, encoding='utf-8') as f_r:
-            # load file
-            data = json.load(f_r)
-            print(data)
-
-            # load variables
-            # location
-            location_x = data["char"][0]
-            location_y = data["char"][1]
-
-            # setting user position
-            self.user_pos(location_x, location_y)
-
-            # draw
-            for i in self.map_string_list:
-                print(i)
-                #for a in range(len(data[i])):
-                for k in data[i]:
-                    if i == "walls": self.wall_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "thorns": self.object_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "coins": self.coin_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "flags": self.flag_line(k["pos"][0], k["pos"][1], k["tex"])
-                    elif i == "spring": self.spring_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-                    elif i == "portal": self.portal_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
-
+                if i == "walls": self.wall_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
+                elif i == "thorns": self.object_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
+                elif i == "coins": self.coin_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
+                elif i == "flags": self.flag_line(k["pos"][0], k["pos"][1], k["tex"])
+                elif i == "spring": self.spring_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
+                elif i == "portal": self.portal_line(k["pos"][0], k["pos"][1], k["pos"][2], k["tex"])
 
     def user_pos(self, u_x, u_y): #최영훈
         self.char_x = u_x
