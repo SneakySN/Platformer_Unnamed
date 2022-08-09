@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f10a010b-1680-4044-9f64-79007e8a0979}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>Game.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.10</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="back\Mapedit.py" />
+    <Compile Include="Game.py" />
+    <Compile Include="GlobalConsts.py" />
+    <Compile Include="main.py" />
+    <Compile Include="Mapedit.py" />
+    <Compile Include="Menu.py" />
+    <Compile Include="Setting.py" />
+    <Compile Include="Totalmain.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pic\default\blank_dot_block.png" />
+    <Content Include="pic\default\char.png" />
+    <Content Include="pic\default\cursor.png" />
+    <Content Include="pic\default\cursor_backup.png" />
+    <Content Include="pic\laser\b0.png" />
+    <Content Include="pic\laser\b0_1.png" />
+    <Content Include="pic\laser\b0_2.png" />
+    <Content Include="pic\laser\b0_3.png" />
+    <Content Include="pic\laser\b1_1.png" />
+    <Content Include="pic\laser\b1_2.png" />
+    <Content Include="pic\laser\b2.png" />
+    <Content Include="pic\laser\b3.png" />
+    <Content Include="pic\laser\b4.png" />
+    <Content Include="pic\laser\b5.png" />
+    <Content Include="pic\laser\br0.png" />
+    <Content Include="pic\laser\br0_1.png" />
+    <Content Include="pic\laser\br0_2.png" />
+    <Content Include="pic\laser\br0_3.png" />
+    <Content Include="pic\laser\br1_1.png" />
+    <Content Include="pic\laser\br1_2.png" />
+    <Content Include="pic\laser\br2.png" />
+    <Content Include="pic\laser\br3.png" />
+    <Content Include="pic\laser\br4.png" />
+    <Content Include="pic\laser\br5.png" />
+    <Content Include="pic\laser\g0.png" />
+    <Content Include="pic\laser\g0_1.png" />
+    <Content Include="pic\laser\g0_2.png" />
+    <Content Include="pic\laser\g0_3.png" />
+    <Content Include="pic\laser\g1_1.png" />
+    <Content Include="pic\laser\g1_2.png" />
+    <Content Include="pic\laser\g2.png" />
+    <Content Include="pic\laser\g3.png" />
+    <Content Include="pic\laser\g4.png" />
+    <Content Include="pic\laser\g5.png" />
+    <Content Include="pic\laser\p0.png" />
+    <Content Include="pic\laser\p0_1.png" />
+    <Content Include="pic\laser\p0_2.png" />
+    <Content Include="pic\laser\p0_3.png" />
+    <Content Include="pic\laser\p1_1.png" />
+    <Content Include="pic\laser\p1_2.png" />
+    <Content Include="pic\laser\p2.png" />
+    <Content Include="pic\laser\p3.png" />
+    <Content Include="pic\laser\p4.png" />
+    <Content Include="pic\laser\p5.png" />
+    <Content Include="pic\laser\r0.png" />
+    <Content Include="pic\laser\r0_1.png" />
+    <Content Include="pic\laser\r0_2.png" />
+    <Content Include="pic\laser\r0_3.png" />
+    <Content Include="pic\laser\r1_1.png" />
+    <Content Include="pic\laser\r1_2.png" />
+    <Content Include="pic\laser\r2.png" />
+    <Content Include="pic\laser\r3.png" />
+    <Content Include="pic\laser\r4.png" />
+    <Content Include="pic\laser\r5.png" />
+    <Content Include="pic\mapedit\back.png" />
+    <Content Include="pic\mapedit\blank_square.png" />
+    <Content Include="pic\mapedit\blocks.png" />
+    <Content Include="pic\mapedit\erase.png" />
+    <Content Include="pic\mapedit\objects.png" />
+    <Content Include="pic\mapedit\open.png" />
+    <Content Include="pic\mapedit\platform.png" />
+    <Content Include="pic\mapedit\pt6_sq.png" />
+    <Content Include="pic\mapedit\save.png" />
+    <Content Include="pic\mapedit\sprite.png" />
+    <Content Include="pic\mapedit\tool.png" />
+    <Content Include="pic\mapedit\tools.png" />
+    <Content Include="pic\menu\back.png" />
+    <Content Include="pic\menu\custom.png" />
+    <Content Include="pic\menu\custom_pressed.png" />
+    <Content Include="pic\menu\list_cell.png" />
+    <Content Include="pic\menu\list_l.png" />
+    <Content Include="pic\menu\list_r.png" />
+    <Content Include="pic\menu\main.png" />
+    <Content Include="pic\menu\main_pressed.png" />
+    <Content Include="pic\menu\mapedit.png" />
+    <Content Include="pic\menu\map_load.png" />
+    <Content Include="pic\menu\map_load_view.png" />
+    <Content Include="pic\menu\map_slot.png" />
+    <Content Include="pic\menu\quit.png" />
+    <Content Include="pic\menu\setting.png" />
+    <Content Include="pic\menu\start.png" />
+    <Content Include="pic\moving_platforms\floor.png" />
+    <Content Include="pic\moving_platforms\half floor.png" />
+    <Content Include="pic\object_interact\bit_w.png" />
+    <Content Include="pic\object_interact\button_b.png" />
+    <Content Include="pic\object_interact\button_g.png" />
+    <Content Include="pic\object_interact\button_r.png" />
+    <Content Include="pic\object_interact\flag.png" />
+    <Content Include="pic\object_interact\mirror.png" />
+    <Content Include="pic\object_interact\mirror_45.png" />
+    <Content Include="pic\object_interact\portal.png" />
+    <Content Include="pic\object_interact\spring.png" />
+    <Content Include="pic\object_interact\thorn_0.png" />
+    <Content Include="pic\object_interact\thorn_1.png" />
+    <Content Include="pic\object_interact\thorn_2.png" />
+    <Content Include="pic\object_interact\thorn_3.png" />
+    <Content Include="pic\platforms\corner_floor_down_left.png" />
+    <Content Include="pic\platforms\corner_floor_down_right.png" />
+    <Content Include="pic\platforms\corner_floor_left.png" />
+    <Content Include="pic\platforms\corner_floor_right.png" />
+    <Content Include="pic\platforms\def_floor.png" />
+    <Content Include="pic\platforms\def_floor_d.png" />
+    <Content Include="pic\platforms\def_floor_l.png" />
+    <Content Include="pic\platforms\def_floor_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="back" />
+    <Folder Include="pic\" />
+    <Folder Include="pic\default" />
+    <Folder Include="pic\laser" />
+    <Folder Include="pic\mapedit" />
+    <Folder Include="pic\menu" />
+    <Folder Include="pic\moving_platforms" />
+    <Folder Include="pic\object_interact" />
+    <Folder Include="pic\platforms" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.10" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
