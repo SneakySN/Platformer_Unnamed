@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{f10a010b-1680-4044-9f64-79007e8a0979}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>obsolete_ref\main.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -20,13 +20,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="back\Mapedit.py" />
-    <Compile Include="Game.py" />
-    <Compile Include="GlobalConsts.py" />
-    <Compile Include="main.py" />
-    <Compile Include="Mapedit.py" />
-    <Compile Include="Menu.py" />
-    <Compile Include="Setting.py" />
-    <Compile Include="Totalmain.py" />
+    <Compile Include="obsolete_ref\Game.py" />
+    <Compile Include="obsolete_ref\GlobalConsts.py" />
+    <Compile Include="obsolete_ref\main.py" />
+    <Compile Include="obsolete_ref\Mapedit.py" />
+    <Compile Include="obsolete_ref\Menu.py" />
+    <Compile Include="obsolete_ref\Setting.py" />
+    <Compile Include="obsolete_ref\Totalmain.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pic\default\blank_dot_block.png" />
@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="back" />
+    <Folder Include="obsolete_ref\" />
     <Folder Include="pic\" />
     <Folder Include="pic\default" />
     <Folder Include="pic\laser" />
