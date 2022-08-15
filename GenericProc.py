@@ -115,12 +115,25 @@ class UpdateClicked(ExecuteProcessor):
 		for c in self.cgroup.entities:
 			cs = c.get(Sprite).sprite
 			for e in self.mgroup.entities:
+				if e.has(Clicked):
+					print("Clicked twice in a single frame")
+					continue
 				if arcade.check_for_collision(cs, e.get(Sprite).sprite):
 					e.add(Clicked)
 					print(f"{e} is clicked")
 
 	def execute(self):
 		pass
+
+class CleanupClicked(CleanupProcessor):
+	def __init__(self, context: Context):
+		super().__init__()
+		self.context = context
+		self.group = context.get_group(Matcher(Clicked))
+
+	def cleanup(self):
+		while len(self.group.entities) > 0:
+			self.group.entities.pop().remove(Clicked)
 
 class CreateCursor(InitializeProcessor):
 	def __init__(self, context: Context):
