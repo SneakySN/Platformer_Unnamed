@@ -1,4 +1,3 @@
-import arcade
 from entitas import *
 from Component import *
 from Consts import *

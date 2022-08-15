@@ -21,6 +21,8 @@ class MainView(arcade.View):
 		processors.add(UpdateScale(context))
 
 		processors.add(RenderSprite(context))
+
+		processors.add(CleanupClicked(context))
 		
 		processors.add(CreateCursor(context))
 		processors.add(CreateMenuButtons(context))
