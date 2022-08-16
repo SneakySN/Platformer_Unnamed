@@ -14,8 +14,10 @@ class MainView(arcade.View):
 		processors.add(self.mouse_motion_processor)
 		self.mouse_press_processor = UpdateClicked(context)
 		processors.add(self.mouse_press_processor)
-
+		
+		processors.add(AddClickable(context))
 		processors.add(CreateSprite(context))
+		processors.add(RemoveClickable(context))
 		processors.add(RemoveSprite(context))
 		processors.add(UpdatePosition(context))
 		processors.add(UpdateScale(context))

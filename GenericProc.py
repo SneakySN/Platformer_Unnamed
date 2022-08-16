@@ -2,6 +2,7 @@ import arcade
 from entitas import *
 from Component import *
 
+sprites = {}
 class CreateSprite(ReactiveProcessor):
 	def __init__(self, context: Context):
 		super().__init__(context)
@@ -14,7 +15,9 @@ class CreateSprite(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
-			e.add(Sprite, arcade.Sprite(e.get(Image).source))
+			sprite = arcade.Sprite(e.get(Image).source)
+			sprites[sprite] = e
+			e.add(Sprite, sprite)
 			if e.has(Position): e.replace(Position, e.get(Position).x, e.get(Position).y)
 			if e.has(Scale): e.replace(Scale, e.get(Scale).scale)
 
@@ -30,6 +33,7 @@ class RemoveSprite(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
+			del sprites[e.get(Sprite)]
 			e.remove(Clickable)
 			e.remove(Sprite)
 
@@ -109,18 +113,18 @@ class UpdateClicked(ExecuteProcessor):
 		super().__init__()
 		self.context = context
 		self.cgroup = context.get_group(Matcher(Cursor))
-		self.mgroup = context.get_group(Matcher(Clickable))
 
 	def update(self, x, y):
 		for c in self.cgroup.entities:
 			cs = c.get(Sprite).sprite
-			for e in self.mgroup.entities:
+			m = arcade.check_for_collision_with_list(cs, clickables)
+			for s in m:
+				e = sprites[s]
 				if e.has(Clicked):
 					print("Clicked twice in a single frame")
 					continue
-				if arcade.check_for_collision(cs, e.get(Sprite).sprite):
-					e.add(Clicked)
-					print(f"{e} is clicked")
+				e.add(Clicked)
+				print(f"{e} is clicked")
 
 	def execute(self):
 		pass
