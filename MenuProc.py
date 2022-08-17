@@ -34,13 +34,13 @@ class OnMenuButtonClicked(ReactiveProcessor):
 
 	def react(self, entities):
 		e = entities[0]
-		match e.get(MenuButton).id:
-			case 0 | 4: # Back / Quit
-				arcade.close_window()
-				quit()
-			case 1: # Start
-				pass
-			case 2: # Settings
-				pass
-			case 3: # Map Edit
-				pass
+		id = e.get(MenuButton).id
+		if id == 0 or id == 4: # Back / Quit
+			arcade.close_window()
+			quit()
+		elif id == 1: # Start
+			pass
+		elif id == 2: # Settings
+			pass
+		elif id == 3: # Map Edit
+			pass

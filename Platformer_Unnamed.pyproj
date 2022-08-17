@@ -19,7 +19,6 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="back\Mapedit.py" />
     <Compile Include="BaseView.py" />
     <Compile Include="Component.py">
       <SubType>Code</SubType>
@@ -43,7 +42,7 @@
     <Compile Include="MenuProc.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainView.py">
+    <Compile Include="MenuView.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -154,7 +153,6 @@
     <Content Include="assets\platforms\def_floor_r.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="back" />
     <Folder Include="obsolete_ref\" />
     <Folder Include="assets\" />
     <Folder Include="assets\default\" />

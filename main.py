@@ -1,10 +1,10 @@
 import arcade
 from Consts import *
-from MainView import MainView
+from MenuView import *
 
 def main():
 	window = arcade.Window(SCREEN_W, SCREEN_H, "Platformer")
-	window.show_view(MainView())
+	window.show_view(MenuView())
 	arcade.run();
 
 if __name__ == "__main__":

@@ -122,11 +122,8 @@ class UpdateClicked(ExecuteProcessor):
 			m = arcade.check_for_collision_with_list(cs, clickables)
 			for s in m:
 				e = sprites[s]
-				if e.has(Clicked):
-					print("Clicked twice in a single frame")
-					continue
+				if e.has(Clicked): continue
 				e.add(Clicked)
-				print(f"{e} is clicked")
 
 	def execute(self):
 		pass
