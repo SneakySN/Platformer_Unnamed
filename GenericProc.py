@@ -15,11 +15,11 @@ class CreateSprite(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
-			sprite = arcade.Sprite(e.get(Image).source)
+			sprite = arcade.Sprite(e.get(Image).value)
 			sprites[sprite] = e
 			e.add(Sprite, sprite)
 			if e.has(Position): e.replace(Position, e.get(Position).x, e.get(Position).y)
-			if e.has(Scale): e.replace(Scale, e.get(Scale).scale)
+			if e.has(Scale): e.replace(Scale, e.get(Scale).value)
 
 class RemoveSprite(ReactiveProcessor):
 	def __init__(self, context: Context):
@@ -45,8 +45,10 @@ class RenderSprite(ExecuteProcessor):
 
 	def execute(self):
 		arcade.start_render()
-		for e in self.group.entities:
-			e.get(Sprite).sprite.draw()
+		entities = list(self.group.entities)
+		entities.sort(key=lambda e: e.get(ZIndex).value if e.has(ZIndex) else 0)
+		for e in entities:
+			e.get(Sprite).value.draw()
 
 class UpdatePosition(ReactiveProcessor):
 	def __init__(self, context: Context):
@@ -61,7 +63,7 @@ class UpdatePosition(ReactiveProcessor):
 	def react(self, entities):
 		for e in entities:
 			pos = e.get(Position)
-			sprite = e.get(Sprite).sprite
+			sprite = e.get(Sprite).value
 			sprite.center_x = pos.x
 			sprite.center_y = pos.y
 
@@ -77,7 +79,7 @@ class UpdateScale(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
-			e.get(Sprite).sprite.scale = e.get(Scale).scale
+			e.get(Sprite).value.scale = e.get(Scale).value
 
 clickables = arcade.SpriteList(True)
 class AddClickable(ReactiveProcessor):
@@ -92,7 +94,7 @@ class AddClickable(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
-			clickables.append(e.get(Sprite).sprite)
+			clickables.append(e.get(Sprite).value)
 
 class RemoveClickable(ReactiveProcessor):
 	def __init__(self, context: Context):
@@ -106,7 +108,7 @@ class RemoveClickable(ReactiveProcessor):
 
 	def react(self, entities):
 		for e in entities:
-			clickables.remove(e.get(Sprite).sprite)
+			clickables.remove(e.get(Sprite).value)
 
 class UpdateClicked(ExecuteProcessor):
 	def __init__(self, context: Context):
@@ -116,7 +118,7 @@ class UpdateClicked(ExecuteProcessor):
 
 	def update(self, x, y):
 		for c in self.cgroup.entities:
-			cs = c.get(Sprite).sprite
+			cs = c.get(Sprite).value
 			m = arcade.check_for_collision_with_list(cs, clickables)
 			for s in m:
 				e = sprites[s]
@@ -149,6 +151,7 @@ class CreateCursor(InitializeProcessor):
 		entity.add(Position, 0, 0)
 		entity.add(Scale, 0.25)
 		entity.add(Image, "assets/default/cursor.png")
+		entity.add(ZIndex, 0x7fff)
 		entity.add(Cursor)
 
 class UpdateMousePosition(ExecuteProcessor):
