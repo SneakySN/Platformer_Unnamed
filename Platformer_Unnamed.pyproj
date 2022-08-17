@@ -20,6 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="back\Mapedit.py" />
+    <Compile Include="BaseView.py" />
     <Compile Include="Component.py">
       <SubType>Code</SubType>
     </Compile>
